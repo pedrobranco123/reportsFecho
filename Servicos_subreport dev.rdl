@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-06-06T07:36:46.8224658Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-06-09T08:42:40.7290963Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -51,7 +51,8 @@ left join acscatr on acsspres.codregrc = acscatr.codsrsa9
 WHERE acstitul.codtitul = @chave_primaria
 AND acsmovim.CODPROC7 = @codprocs
 and acsmovim.movfinan = 'TXC'
-group by categori, CODPROC7, nome, clinica, ninvoice, acsspres.DATA</CommandText>
+group by categori, CODPROC7, nome, clinica, ninvoice, acsspres.DATA
+HAVING sum(acsspres.utente) != 0</CommandText>
       </Query>
       <Fields>
         <Field Name="CATEGORI">
